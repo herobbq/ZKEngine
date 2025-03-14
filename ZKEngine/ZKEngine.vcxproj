@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\$(ProjectName);</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -128,14 +131,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Launch\LaunchEngineLoop.cpp" />
+    <ClCompile Include="Launch\Launch.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="WindowRHI\FD3D12DynamicRHI.cpp" />
+    <ClCompile Include="RHI\DynamicRHI.cpp" />
+    <ClCompile Include="WindowRHI\D3D12DynamicRHI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Window\" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WindowRHI\FD3D12DynamicRHI.h" />
+    <ClInclude Include="Launch\LaunchEngineLoop.h" />
+    <ClInclude Include="RHI\DynamicRHI.h" />
+    <ClInclude Include="WindowRHI\D3D12DynamicRHI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
