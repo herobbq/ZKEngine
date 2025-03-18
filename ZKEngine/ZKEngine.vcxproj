@@ -135,6 +135,10 @@
     <ClCompile Include="Launch\Launch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RHI\D3D12Adapter.cpp" />
+    <ClCompile Include="RHI\D3D12Device.cpp" />
+    <ClCompile Include="RHI\D3D12Queue.cpp" />
+    <ClCompile Include="RHI\D3D12Submission.cpp" />
+    <ClCompile Include="RHI\D3D12Util.cpp" />
     <ClCompile Include="RHI\DynamicRHI.cpp" />
     <ClCompile Include="D3D12RHI\D3D12RHIPrivate.cpp" />
   </ItemGroup>
@@ -144,6 +148,10 @@
   <ItemGroup>
     <ClInclude Include="Launch\LaunchEngineLoop.h" />
     <ClInclude Include="RHI\D3D12Adapter.h" />
+    <ClInclude Include="RHI\D3D12Device.h" />
+    <ClInclude Include="RHI\D3D12Queue.h" />
+    <ClInclude Include="RHI\D3D12Submission.h" />
+    <ClInclude Include="RHI\D3D12Util.h" />
     <ClInclude Include="RHI\DynamicRHI.h" />
     <ClInclude Include="D3D12RHI\D3D12RHIPrivate.h" />
   </ItemGroup>

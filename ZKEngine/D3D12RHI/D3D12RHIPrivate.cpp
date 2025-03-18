@@ -12,21 +12,8 @@
 using namespace  Microsoft::WRL;
 
 //用于判断函数执行错误的，如果出错了就会引发异常
-#define GRS_THROW_IF_FAILED(hr) {HRESULT _hr = (hr);if (FAILED(_hr)){ throw CGRSCOMException(_hr); }}
+#include "RHI/D3D12Util.h"
 FD3D12DynamicRHI* GD3D12RHI = nullptr;
-class CGRSCOMException
-{
-public:
-    CGRSCOMException(HRESULT hr) : m_hrError(hr)
-    {
-    }
-    HRESULT Error() const
-    {
-        return m_hrError;
-    }
-private:
-    const HRESULT m_hrError;
-};
 
 FD3D12DynamicRHI::FD3D12DynamicRHI(shared_ptr<FD3D12Adapter> InAdapter)
     :Adapter(InAdapter)

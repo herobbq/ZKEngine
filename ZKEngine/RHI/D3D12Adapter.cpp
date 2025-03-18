@@ -1,5 +1,6 @@
 ﻿#include "D3D12Adapter.h"
-
+#include "D3D12Device.h"
+#include "D3D12Util.h"
 FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC1& InDesc, unsigned int InAdapterIndex)
     :Desc(InDesc),
     AdapterIndex(InAdapterIndex)
@@ -19,8 +20,10 @@ void FD3D12Adapter::InitializeDevices()
 #if defined(_DEBUG)
         WithDebug = true;
 #endif
-        CreateDXGIFactory(WithDebug);
+        CreateRootDevice(WithDebug);
+        
     }
+    Device = new FD3D12Device(this);
 }
 
 void FD3D12Adapter::CreateDXGIFactory(bool bWithDebug)
@@ -48,4 +51,11 @@ void FD3D12Adapter::EnumeAdapters()
     if (!DxgiFactory5 || Desc.AdapterIndex ==  -1)
         return;
     DxgiFactory5->EnumAdapters1(Desc.AdapterIndex, &DxgiAdapter);
+}
+
+void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
+{
+    CreateDXGIFactory(bWithDebug);
+    EnumeAdapters();
+    GRS_THROW_IF_FAILED(D3D12CreateDevice(GetAdapter(), D3D_FEATURE_LEVEL_12_1, IID_PPV_ARGS(&RootDevice)));
 }
