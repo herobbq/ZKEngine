@@ -13,10 +13,14 @@ struct ID3D12DynamicRHI : public FDynamicRHI
 
 class FD3D12DynamicRHI : public ID3D12DynamicRHI
 {
+    static FD3D12DynamicRHI* SingleD3DRHI;
 public:
     FD3D12DynamicRHI(shared_ptr<FD3D12Adapter> Adapter);
     ~FD3D12DynamicRHI(){};
     virtual void Init()  override;
+    FD3D12Device* GetRHIDevice() const;
+    const FD3D12Adapter& GetAdapter() const {return  *Adapter;}
+    static FD3D12DynamicRHI* GetD3DRHI() { return SingleD3DRHI; }
 protected:
     shared_ptr<FD3D12Adapter> Adapter;
     

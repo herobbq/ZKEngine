@@ -20,6 +20,7 @@ public:
     
     ID3D12Device* GetD3DDevice() const { return RootDevice.Get(); }
     IDXGIAdapter* GetAdapter() { return DxgiAdapter.Get(); }
+    FD3D12Device* GetDevice() const {return  Device;}
     void InitializeDevices();
 protected:
     void CreateDXGIFactory(bool bWithDebug);

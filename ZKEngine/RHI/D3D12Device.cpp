@@ -17,3 +17,7 @@ ID3D12Device* FD3D12Device::GetDevice()
 {
     return GetParentAdapter()->GetD3DDevice();
 }
+
+void FD3D12Device::SetupAfterDeviceCreation()
+{
+}

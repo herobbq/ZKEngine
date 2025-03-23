@@ -12,7 +12,7 @@ public:
     ~FD3D12Device();
   
     ID3D12Device* GetDevice();
-
+    void SetupAfterDeviceCreation();
 private:
     std::vector<FD3D12Queue> Queues;
 };
