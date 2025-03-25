@@ -9,6 +9,8 @@
 #include <dxgidebug.h>//DXGI有一个独自的调试，下面还有一个flag相关的
 #endif
 #include <iostream>
+
+#include "RHI/D3D12Viewport.h"
 using namespace  Microsoft::WRL;
 
 //用于判断函数执行错误的，如果出错了就会引发异常
@@ -32,6 +34,14 @@ void FD3D12DynamicRHI::Init()
 FD3D12Device* FD3D12DynamicRHI::GetRHIDevice() const
 {
   return  GetAdapter().GetDevice();
+}
+
+std::shared_ptr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, unsigned int SizeX,
+    unsigned int SizeY, bool bIsFullscreen, EPixelFormat PreferredPixelFormat)
+{
+    auto Viewport = std::make_shared<FD3D12Viewport>(&GetAdapter(),(HWND)WindowHandle, SizeX, SizeY, bIsFullscreen, PreferredPixelFormat);
+    Viewport->Init();
+    return Viewport;
 }
 
 bool FD3D12DynamicRHIModule::IsSupported(ERHIPlatform Platform)

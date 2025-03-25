@@ -20,7 +20,9 @@ public:
     virtual void Init()  override;
     FD3D12Device* GetRHIDevice() const;
     const FD3D12Adapter& GetAdapter() const {return  *Adapter;}
+    FD3D12Adapter& GetAdapter() {return  *Adapter;}
     static FD3D12DynamicRHI* GetD3DRHI() { return SingleD3DRHI; }
+    std::shared_ptr<FRHIViewport> RHICreateViewport(void* WindowHandle, unsigned int SizeX, unsigned int SizeY, bool bIsFullscreen, EPixelFormat PreferredPixelFormat);
 protected:
     shared_ptr<FD3D12Adapter> Adapter;
     

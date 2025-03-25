@@ -139,8 +139,10 @@
     <ClCompile Include="RHI\D3D12Queue.cpp" />
     <ClCompile Include="RHI\D3D12Submission.cpp" />
     <ClCompile Include="RHI\D3D12Util.cpp" />
+    <ClCompile Include="RHI\D3D12Viewport.cpp" />
     <ClCompile Include="RHI\DynamicRHI.cpp" />
     <ClCompile Include="D3D12RHI\D3D12RHIPrivate.cpp" />
+    <ClCompile Include="RHI\RHIViewport.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Window\" />
@@ -152,8 +154,10 @@
     <ClInclude Include="RHI\D3D12Queue.h" />
     <ClInclude Include="RHI\D3D12Submission.h" />
     <ClInclude Include="RHI\D3D12Util.h" />
+    <ClInclude Include="RHI\D3D12Viewport.h" />
     <ClInclude Include="RHI\DynamicRHI.h" />
     <ClInclude Include="D3D12RHI\D3D12RHIPrivate.h" />
+    <ClInclude Include="RHI\RHIViewport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

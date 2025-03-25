@@ -23,3 +23,8 @@ bool LoadModule(std::string Platform)
         return GDynamicRHIModule->IsSupported(ERHIPlatform::WINDOW_D3D12);
     }
 }
+
+std::shared_ptr<FRHIViewport> RHICreateViewport(void* WindowHandle, unsigned int SizeX, unsigned int SizeY, bool bIsFullscreen, EPixelFormat PreferredPixelFormat)
+{
+    return  GDynamicRHI->RHICreateViewport(WindowHandle, SizeX, SizeY, bIsFullscreen, PreferredPixelFormat);
+}

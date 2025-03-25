@@ -1,7 +1,10 @@
 ﻿#include "D3D12Adapter.h"
 #include "D3D12Device.h"
 #include "D3D12Util.h"
-FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC1& InDesc, unsigned int InAdapterIndex)
+
+typedef unsigned int		uint32;
+typedef unsigned char		uint8;
+FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC1& InDesc, uint32 InAdapterIndex)
     :Desc(InDesc),
     AdapterIndex(InAdapterIndex)
 {
@@ -28,7 +31,7 @@ void FD3D12Adapter::InitializeDevices()
 
 void FD3D12Adapter::CreateDXGIFactory(bool bWithDebug)
 {
-    unsigned int DXGIFactoryFlags = 0u;
+    uint32 DXGIFactoryFlags = 0u;
     if (bWithDebug)
     {
         ComPtr<ID3D12Debug> debugController;

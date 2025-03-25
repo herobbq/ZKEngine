@@ -22,6 +22,8 @@ public:
     IDXGIAdapter* GetAdapter() { return DxgiAdapter.Get(); }
     FD3D12Device* GetDevice() const {return  Device;}
     void InitializeDevices();
+    const FD3D12AdapterDesc& GetDesc() const { return Desc; }
+    IDXGIFactory5* GetDXGIFactory5() const { return DxgiFactory5.Get(); }
 protected:
     void CreateDXGIFactory(bool bWithDebug);
     void EnumeAdapters();
