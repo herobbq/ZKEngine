@@ -135,6 +135,7 @@
     <ClCompile Include="Launch\Launch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RHI\D3D12Adapter.cpp" />
+    <ClCompile Include="RHI\D3D12CommandAllocator.cpp" />
     <ClCompile Include="RHI\D3D12Device.cpp" />
     <ClCompile Include="RHI\D3D12Queue.cpp" />
     <ClCompile Include="RHI\D3D12Submission.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Launch\LaunchEngineLoop.h" />
     <ClInclude Include="RHI\D3D12Adapter.h" />
+    <ClInclude Include="RHI\D3D12CommandAllocator.h" />
     <ClInclude Include="RHI\D3D12Device.h" />
     <ClInclude Include="RHI\D3D12Queue.h" />
     <ClInclude Include="RHI\D3D12Submission.h" />
