@@ -4,10 +4,12 @@
 #include <vector>
 #include "D3D12Submission.h"
 #include "D3D12Adapter.h"
+
 #include "D3D12Util.h"
+class FD3D12Heap;
 //#include "D3D12Queue.h"
 typedef unsigned __int64 uint64;
-
+class FD3D12PipelineState;
 class FD3D12CommandAllocator;
 enum class ED3D12QueueType
 {
@@ -45,6 +47,7 @@ public:
         WaitForSingleObject(hEventFence, INFINITE);
         //return ValueToSignal;
     }
+   
     ComPtr<ID3D12CommandQueue> D3DCommandQueue;
 protected:
     bool bRequiresSignal = false;
@@ -62,8 +65,25 @@ public:
     bool bRequiresSignal = false;
     FD3D12Queue& GetQueue(ED3D12QueueType QueueType) { return Queues[(unsigned int)QueueType]; }
     void SetupAfterDeviceCreation();
+    std::shared_ptr<FD3D12PipelineState> CreatePipelineState(D3D12_GRAPHICS_PIPELINE_STATE_DESC& Des);
+    std::shared_ptr<FD3D12Heap> CreateHeap(D3D12_HEAP_DESC& Des);
     FD3D12CommandAllocator* ObtainCommandAllocator (ED3D12QueueType QueueType);
 private:
     std::vector<FD3D12Queue> Queues;
 };
 
+class FD3D12DeviceChild
+{
+protected:
+    FD3D12Device* Parent;
+
+public:
+    FD3D12DeviceChild(FD3D12Device* InParent = nullptr) : Parent(InParent) {}
+
+    FORCEINLINE FD3D12Device* GetParentDevice() const
+    {
+        return Parent;
+    }
+
+   
+};
