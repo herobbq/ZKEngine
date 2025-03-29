@@ -6,11 +6,14 @@
 #include "D3D12Adapter.h"
 
 #include "D3D12Util.h"
+class FD3D12DescriptorHeap;
 class FD3D12Heap;
 //#include "D3D12Queue.h"
 typedef unsigned __int64 uint64;
 class FD3D12PipelineState;
 class FD3D12CommandAllocator;
+
+
 enum class ED3D12QueueType
 {
     Direct = 0,
@@ -67,6 +70,7 @@ public:
     void SetupAfterDeviceCreation();
     std::shared_ptr<FD3D12PipelineState> CreatePipelineState(D3D12_GRAPHICS_PIPELINE_STATE_DESC& Des);
     std::shared_ptr<FD3D12Heap> CreateHeap(D3D12_HEAP_DESC& Des);
+    std::shared_ptr<FD3D12DescriptorHeap> CreateDescriptorHeap(ERHIDescriptorHeapType HeapType,uint32 NumDescriptors, ED3D12DescriptorHeapFlags Flags);
     FD3D12CommandAllocator* ObtainCommandAllocator (ED3D12QueueType QueueType);
 private:
     std::vector<FD3D12Queue> Queues;

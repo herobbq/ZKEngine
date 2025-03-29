@@ -1,5 +1,6 @@
 ﻿#include "D3D12Device.h"
 #include "D3D12CommandAllocator.h"
+#include "D3D12Descriptor.h"
 #include "D3D12PipelineState.h"
 #include "D3D12Resources.h"
 
@@ -37,6 +38,20 @@ std::shared_ptr<FD3D12Heap> FD3D12Device::CreateHeap(D3D12_HEAP_DESC& Des)
     auto&& D3D12Heap =  std::make_shared<FD3D12Heap>(this);
     D3D12Heap->Create(Des);
     return D3D12Heap;
+}
+
+std::shared_ptr<FD3D12DescriptorHeap> FD3D12Device::CreateDescriptorHeap(ERHIDescriptorHeapType HeapType,
+    uint32 NumDescriptors, ED3D12DescriptorHeapFlags Flags)
+{
+    D3D12_DESCRIPTOR_HEAP_DESC Desc{};
+    Desc.Type = Translate(HeapType);
+    Desc.NumDescriptors = NumDescriptors;
+    Desc.Flags = Translate(Flags);
+   // Desc.NodeMask = GetDevice()->GetGPUMask().GetNative();
+
+    ComPtr<ID3D12DescriptorHeap> Heap;
+    GRS_THROW_IF_FAILED(GetDevice()->CreateDescriptorHeap(&Desc, IID_PPV_ARGS(&Heap)));
+    return std::make_shared<FD3D12DescriptorHeap>(this,std::move(Heap),HeapType,Flags);
 }
 
 FD3D12CommandAllocator* FD3D12Device::ObtainCommandAllocator(ED3D12QueueType QueueType)
