@@ -1,10 +1,13 @@
 ﻿#pragma once
 #define WIN32_LEAN_AND_MEAN // 从 Windows 头中排除极少使用的资料
+#include <DirectXMath.h>
 #include <windows.h>
 typedef unsigned char  uint8;
 typedef unsigned int  uint32;
 #define MAX_uint8		((uint8)	0xff)
 #include"d3d12.h"
+
+using namespace DirectX;
 class CGRSCOMException
 {
 public:
@@ -43,3 +46,8 @@ constexpr bool EnumHasAnyFlags(Enum Flags, Enum Contains)
     return ((UnderlyingType)Flags & (UnderlyingType)Contains) != 0;
 }
 
+struct FStaticMeshVertex
+{
+    XMFLOAT4 Position;		//Position
+    XMFLOAT2 UV;
+};
