@@ -142,6 +142,7 @@
     <ClCompile Include="RHI\D3D12PipelineState.cpp" />
     <ClCompile Include="RHI\D3D12Queue.cpp" />
     <ClCompile Include="RHI\D3D12Resources.cpp" />
+    <ClCompile Include="RHI\D3D12RootSignature.cpp" />
     <ClCompile Include="RHI\D3D12Submission.cpp" />
     <ClCompile Include="RHI\D3D12Util.cpp" />
     <ClCompile Include="RHI\D3D12Viewport.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="RHI\D3D12PipelineState.h" />
     <ClInclude Include="RHI\D3D12Queue.h" />
     <ClInclude Include="RHI\D3D12Resources.h" />
+    <ClInclude Include="RHI\D3D12RootSignature.h" />
     <ClInclude Include="RHI\D3D12Submission.h" />
     <ClInclude Include="RHI\D3D12Util.h" />
     <ClInclude Include="RHI\D3D12Viewport.h" />
