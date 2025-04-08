@@ -6,6 +6,7 @@
 #include "D3D12Adapter.h"
 
 #include "D3D12Util.h"
+class FD3D12CommandList;
 class FD3D12DescriptorHeap;
 class FD3D12Heap;
 //#include "D3D12Queue.h"
@@ -50,7 +51,7 @@ public:
         WaitForSingleObject(hEventFence, INFINITE);
         //return ValueToSignal;
     }
-   
+    void ExecuteCommandLists(std::vector<FD3D12CommandList*>& CommandList);
     ComPtr<ID3D12CommandQueue> D3DCommandQueue;
 protected:
     bool bRequiresSignal = false;

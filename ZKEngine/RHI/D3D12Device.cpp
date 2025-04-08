@@ -1,8 +1,20 @@
 ﻿#include "D3D12Device.h"
 #include "D3D12CommandAllocator.h"
+#include "D3D12CommandList.h"
 #include "D3D12Descriptor.h"
 #include "D3D12PipelineState.h"
 #include "D3D12Resources.h"
+
+void FD3D12Queue::ExecuteCommandLists(std::vector<FD3D12CommandList*>& CommandLists)
+{
+    
+    std::vector<ID3D12CommandList*> CommandListData;
+    for (auto&& CommandList : CommandLists)
+    {
+        CommandListData.push_back(CommandList->GetD3DCommandList());
+    }
+    D3DCommandQueue->ExecuteCommandLists(CommandListData.size(), CommandListData.data());
+}
 
 FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter)
     :FD3D12AdapterChild(InAdapter)
