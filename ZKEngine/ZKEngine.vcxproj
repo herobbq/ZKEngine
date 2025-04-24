@@ -131,6 +131,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Application.cpp" />
+    <ClCompile Include="Engine\Director.cpp" />
+    <ClCompile Include="Engine\Viewport.cpp" />
     <ClCompile Include="Launch\LaunchEngineLoop.cpp" />
     <ClCompile Include="Launch\Launch.cpp" />
     <ClCompile Include="main.cpp" />
@@ -149,11 +152,13 @@
     <ClCompile Include="RHI\DynamicRHI.cpp" />
     <ClCompile Include="D3D12RHI\D3D12RHIPrivate.cpp" />
     <ClCompile Include="RHI\RHIViewport.cpp" />
+    <ClCompile Include="Window\WindowDirector.cpp" />
+    <ClCompile Include="Window\WindowViewPort.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Window\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="Engine\Application.h" />
+    <ClInclude Include="Engine\Director.h" />
+    <ClInclude Include="Engine\Viewport.h" />
     <ClInclude Include="Launch\LaunchEngineLoop.h" />
     <ClInclude Include="RHI\D3D12Adapter.h" />
     <ClInclude Include="RHI\D3D12CommandAllocator.h" />
@@ -170,6 +175,8 @@
     <ClInclude Include="RHI\DynamicRHI.h" />
     <ClInclude Include="D3D12RHI\D3D12RHIPrivate.h" />
     <ClInclude Include="RHI\RHIViewport.h" />
+    <ClInclude Include="Window\WindowDirector.h" />
+    <ClInclude Include="Window\WindowViewPort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

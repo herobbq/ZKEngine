@@ -4,6 +4,5 @@
 FEngineLoop GEngineLoop;
 int EnginePreInit()
 {
-    std::cout<<"EnginePreInit"<<std::endl;
     return GEngineLoop.PreInit();
 }
